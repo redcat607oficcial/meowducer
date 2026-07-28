@@ -18,4 +18,4 @@ Features a sleek Catppuccin dark GUI (Tkinter) and an interactive CLI mode (-c)
 ## 🛠️ Requirements
 
 - **Python 3.x**
-- **Tkinter** (for GUI mode)
+- **Tkinter** 
