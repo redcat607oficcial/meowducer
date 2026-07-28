@@ -89,7 +89,7 @@ def run_console_mode():
             sys.exit()
 
 
-# --- CONSOLE ARGUMENT PROCESSING ---
+
 if len(sys.argv) > 1:
     arg = sys.argv[1].lower()
     if arg in ("-h", "--h", "--help", "-help"):
@@ -98,7 +98,7 @@ if len(sys.argv) > 1:
         run_console_mode()
 
 
-# --- GRAPHICAL USER INTERFACE (GUI) ---
+
 def btn_encode_click():
     input_text = txt_normal.get("1.0", tk.END).strip()
     if not input_text:
@@ -136,7 +136,7 @@ root.configure(bg="#1E1E2E")
 FONT_LABEL = ("Segoe UI", 11, "bold")
 FONT_TEXT = ("Consolas", 11)
 
-# Title
+
 lbl_title = tk.Label(
     root,
     text="Meowducer",
@@ -146,7 +146,7 @@ lbl_title = tk.Label(
 )
 lbl_title.pack(pady=12)
 
-# Normal Text Section
+
 frame_normal = tk.Frame(root, bg="#1E1E2E")
 frame_normal.pack(fill="both", expand=True, padx=20, pady=5)
 
@@ -167,7 +167,7 @@ txt_normal = tk.Text(
 )
 txt_normal.pack(fill="both", expand=True, pady=5)
 
-# Buttons
+
 frame_buttons = tk.Frame(root, bg="#1E1E2E")
 frame_buttons.pack(pady=10)
 
@@ -216,7 +216,7 @@ btn_clear = tk.Button(
 )
 btn_clear.grid(row=0, column=2, padx=6)
 
-# Meowscript Section
+
 frame_meow = tk.Frame(root, bg="#1E1E2E")
 frame_meow.pack(fill="both", expand=True, padx=20, pady=5)
 
@@ -241,7 +241,7 @@ txt_meow = tk.Text(
 )
 txt_meow.pack(fill="both", expand=True, pady=5)
 
-# Version at the bottom
+
 lbl_version = tk.Label(
     root,
     text="v2.4",
