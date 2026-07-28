@@ -2,7 +2,7 @@ import sys
 import tkinter as tk
 from tkinter import messagebox
 
-ALPHABET = "abcdefghijklmnopqrstuvwxyz .,!?'"
+ALPHABET = "abcdefghijklmnopqrstuvwxyz0123456789 .,!?'"
 SOUNDS = ["mew", "meow", "prr", "purr"]
 SOUND_TO_VAL = {sound: i for i, sound in enumerate(SOUNDS)}
 
@@ -49,9 +49,8 @@ def decode_meow(cat_text: str) -> str:
 
 
 def show_help():
-    """Displays the help menu in the console and exits the program."""
     help_text = """
-    Meowducer v2.4
+    Meowducer v2.5
 
 Usage:
   python meowducer.py [OPTION]
@@ -64,7 +63,7 @@ No options:
   Running the script without arguments will open the Graphical User Interface (GUI).
 
 Cipher details:
-  - Supported alphabet: Letters (a-z), spaces, and characters: . , ! ? '
+  - Supported alphabet: Letters (a-z), numbers (0-9), spaces, and characters: . , ! ? '
   - Sounds used: mew (0), meow (1), prr (2), purr (3)
   - Encoding chain: Each character equals 3 meows.
 """
@@ -73,8 +72,7 @@ Cipher details:
 
 
 def run_console_mode():
-    """Handles the interactive console loop."""
-    print("\n Meowducer v2.4")
+    print("\n Meowducer v2.5")
     while True:
         print("\n1. Text -> Meowscript")
         print("2. Meowscript -> Text")
@@ -89,14 +87,12 @@ def run_console_mode():
             sys.exit()
 
 
-
 if len(sys.argv) > 1:
     arg = sys.argv[1].lower()
     if arg in ("-h", "--h", "--help", "-help"):
         show_help()
     elif arg in ("-c", "--console"):
         run_console_mode()
-
 
 
 def btn_encode_click():
@@ -129,7 +125,7 @@ def btn_clear_click():
 
 
 root = tk.Tk()
-root.title("Meowducer v2.4")
+root.title("Meowducer v2.5")
 root.geometry("620x580")
 root.configure(bg="#1E1E2E")
 
@@ -244,7 +240,7 @@ txt_meow.pack(fill="both", expand=True, pady=5)
 
 lbl_version = tk.Label(
     root,
-    text="v2.4",
+    text="v2.5",
     font=("Segoe UI", 9),
     fg="#6C7086",
     bg="#1E1E2E",
