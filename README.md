@@ -28,3 +28,12 @@ Features a gorgeous, cute (femboy & furry inspired) Catppuccin dark GUI (Tkinter
 Running the script without arguments will open the **Graphical User Interface (GUI)**:
 ```bash
 python meowducer.py
+
+---
+## 📝 License & Credits
+
+This project was created by **Redcat 607** and is protected under the [GNU GPLv3 License](LICENSE).
+
+You are completely free to use, modify, and distribute this software! However, under the GPLv3 terms,
+**you must give appropriate credit**, keep the original copyright notice intact, 
+and any modified versions you share must also be open-source under the exact same license. 🐾✨
