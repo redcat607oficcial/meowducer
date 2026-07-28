@@ -28,7 +28,7 @@ Features a gorgeous, cute (femboy & furry inspired) Catppuccin dark GUI (Tkinter
 Running the script without arguments will open the **Graphical User Interface (GUI)**:
 ```bash
 python meowducer.py
-```bash
+```
 
 ---
 
