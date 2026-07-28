@@ -2,7 +2,7 @@ import sys
 import tkinter as tk
 from tkinter import messagebox
 
-# version 2.5.1
+# version 2.5.2
 
 ALPHABET = "abcdefghijklmnopqrstuvwxyz0123456789 .,!?'"
 SOUNDS = ["mew", "meow", "prr", "purr"]
@@ -52,14 +52,16 @@ def decode_meow(cat_text: str) -> str:
 
 def show_help():
     help_text = """
-    Meowducer v2.5.1
+    Meowducer v2.5.2
 
 Usage:
-  python meowducer.py [OPTION]
+  python meowducer.py [OPTION] [TEXT]
 
 Command options:
-  -h, --h, --help    Displays this help menu and exits.
-  -c, --console      Starts the program in interactive console mode.
+  -h, --h, --help       Displays this help menu and exits.
+  -c, --console         Starts the program in interactive console mode.
+  -e, --encode [text]   Encodes the provided text into meowscript directly.
+  -d, --decode [text]   Decodes the provided meowscript into text directly.
 
 No options:
   Running the script without arguments will open the Graphical User Interface (GUI).
@@ -74,7 +76,7 @@ Cipher details:
 
 
 def run_console_mode():
-    print("\n Meowducer v2.5.1")
+    print("\n Meowducer v2.5.2")
     while True:
         print("\n1. Text -> Meowscript")
         print("2. Meowscript -> Text")
@@ -95,6 +97,18 @@ if len(sys.argv) > 1:
         show_help()
     elif arg in ("-c", "--console"):
         run_console_mode()
+    elif arg in ("-e", "--encode"):
+        if len(sys.argv) > 2:
+            print(encode_meow(" ".join(sys.argv[2:])))
+        else:
+            print("⚠️ Error: Please provide text to encode.")
+        sys.exit()
+    elif arg in ("-d", "--decode"):
+        if len(sys.argv) > 2:
+            print(decode_meow(" ".join(sys.argv[2:])))
+        else:
+            print("⚠️ Error: Please provide meowscript to decode.")
+        sys.exit()
 
 
 def btn_encode_click():
@@ -127,7 +141,7 @@ def btn_clear_click():
 
 
 root = tk.Tk()
-root.title("Meowducer v2.5.1 🐾")
+root.title("Meowducer v2.5.2 🐾")
 root.geometry("640x620")
 root.configure(bg="#1A1826")
 
@@ -255,7 +269,7 @@ txt_meow.pack(fill="both", expand=True)
 
 lbl_version = tk.Label(
     root,
-    text="v2.5.1",
+    text="v2.5.2",
     font=("Segoe UI", 9, "bold"),
     fg="#6E6C7E",
     bg="#1A1826",
