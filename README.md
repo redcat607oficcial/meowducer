@@ -1,21 +1,41 @@
-# Meowducer
-Meowducer v2.4 is a feline-themed Python text cipher tool. It translates text into "Meowscript" 
+# Meowducer 🐾
+Meowducer v2.5.2 is a feline-themed Python text cipher tool. It translates text into "Meowscript" 
 using a Base-4 algorithm (mew, meow, prr, purr). 
-Features a sleek Catppuccin dark GUI (Tkinter) and an interactive CLI mode (-c)
+Features a gorgeous, cute (femboy & furry inspired) Catppuccin dark GUI (Tkinter), an interactive CLI, and direct terminal commands! ✨
 
 ---
 
 ## ✨ Features
 
 - **Base-4 Cipher Encoding**: Translates characters into distinct 3-sound combinations using `mew`, `meow`, `prr`, and `purr`.
-- **Dual Mode**:
-  - 🎨 **GUI Mode**: A clean, Catppuccin-inspired dark theme built with Tkinter.
-  - 💻 **Console Mode**: Interactive CLI mode for lightweight setups or terminal environments.
-- **Alphabet Support**: Full support for standard English lowercase letters (`a-z`), spaces, and basic punctuation (`. , ! ? '`).
+- **Versatile Execution Modes**:
+  - 🎨 **GUI Mode**: A beautiful, aesthetically pleasing Catppuccin-inspired dark theme with cute styling.
+  - 💻 **Console Mode**: Interactive CLI mode (`-c`) for lightweight setups or terminal environments.
+  - ⚡ **Direct CLI Execution**: Quickly encode (`-e`) or decode (`-d`) directly from your terminal prompt.
+- **Expanded Alphabet Support**: Full support for standard English lowercase letters (`a-z`), **numbers (`0-9`)**, spaces, and basic punctuation (`. , ! ? '`).
 
 ---
 
 ## 🛠️ Requirements
 
 - **Python 3.x**
-- **Tkinter** (for GUI mode)
+- **Tkinter** 
+
+---
+
+## 🚀 Usage
+
+Running the script without arguments will open the **Graphical User Interface (GUI)**:
+```bash
+python meowducer.py
+```
+
+---
+
+## 📝 License & Credits
+
+This project was created by **Redcat 607** and is protected under the [GNU GPLv3 License](LICENSE).
+
+You are completely free to use, modify, and distribute this software! However, under the GPLv3 terms,
+**you must give appropriate credit**, keep the original copyright notice intact, 
+and any modified versions you share must also be open-source under the exact same license. 🐾✨
