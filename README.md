@@ -1,7 +1,7 @@
 # Meowducer 🐾
 Meowducer v2.5.2 is a feline-themed Python text cipher tool. It translates text into "Meowscript" 
 using a Base-4 algorithm (mew, meow, prr, purr). 
-Features a gorgeous, cute (femboy & furry inspired) Catppuccin dark GUI (Tkinter), an interactive CLI, and direct terminal commands! ✨
+Features a gorgeous, cute Catppuccin dark GUI (Tkinter), an interactive CLI, and direct terminal commands! ✨
 
 ---
 
