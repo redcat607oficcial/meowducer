@@ -1,6 +1,7 @@
 import sys
 import tkinter as tk
 from tkinter import messagebox
+import time
 # Meowducer - Feline-themed text cipher tool
 # Copyright (C) 2026 Redcat 607
 #
@@ -144,6 +145,12 @@ def btn_clear_click():
     txt_normal.delete("1.0", tk.END)
     txt_meow.delete("1.0", tk.END)
 
+def copy():
+    texto_a_copiar = txt_meow.get("1.0", tk.END).strip()
+    root.clipboard_clear()
+    root.clipboard_append(texto_a_copiar)
+    root.update() 
+    
 
 root = tk.Tk()
 root.title("Meowducer v2.5.2 🐾")
@@ -156,7 +163,7 @@ FONT_TEXT = ("Consolas", 11)
 
 lbl_title = tk.Label(
     root,
-    text="✨ Meowducer ✨",
+    text=" Meowducer ",
     font=("Segoe UI", 20, "bold"),
     fg="#F5C2E7",
     bg="#1A1826",
@@ -195,7 +202,7 @@ frame_buttons.pack(pady=15)
 
 btn_encode = tk.Button(
     frame_buttons,
-    text="Meow it 🐾",
+    text="Meow it ",
     font=FONT_LABEL,
     bg="#F38BA8",
     fg="#161320",
@@ -241,6 +248,20 @@ btn_clear = tk.Button(
 )
 btn_clear.grid(row=0, column=2, padx=10)
 
+boton_copiar = tk.Button(frame_buttons,
+    text="Copy",
+    font=FONT_LABEL,
+    bg="#F5C2E7",
+    fg="#161320",
+    activebackground="#F4B8E4",
+    command=copy,
+    padx=15,
+    pady=8,
+    relief="flat",
+    cursor="hand2",
+    borderwidth=0,
+    )
+boton_copiar.grid(row=0, column=4, padx=15)
 
 frame_meow = tk.Frame(root, bg="#1A1826")
 frame_meow.pack(fill="both", expand=True, padx=25, pady=5)
@@ -274,7 +295,7 @@ txt_meow.pack(fill="both", expand=True)
 
 lbl_version = tk.Label(
     root,
-    text="v2.5.2",
+    text="v2.5.3",
     font=("Segoe UI", 9, "bold"),
     fg="#6E6C7E",
     bg="#1A1826",
