@@ -33,6 +33,12 @@ Running the script without arguments will open the **Graphical User Interface (G
 python meowducer.py
 ```
 
+## 📦 Downloadable Executables
+
+The GitHub Actions workflow builds a Windows `.exe` and a Linux executable on every push. To build them manually, open the repository's **Actions** tab and run **Build executables**. Download `meowducer-windows-x64` or `meowducer-linux-x64` from the completed workflow run's artifacts.
+
+The builds run on GitHub-hosted machines, so WSL and administrator access on your computer are not required.
+
 ---
 
 ## 📝 License & Credits
