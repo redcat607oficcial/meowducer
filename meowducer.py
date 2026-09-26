@@ -283,7 +283,7 @@ frame_normal.pack(fill="both", expand=True, padx=25, pady=(4, 2))
 
 lbl_normal = tk.Label(
     frame_normal,
-    text="Text",
+    text="Decrypted text",
     font=FONT_LABEL,
     fg=TEXT_FG,
     bg=BG,
