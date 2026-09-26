@@ -1,7 +1,7 @@
 # Meowducer 🐾
-Meowducer v2.5.2 is a feline-themed Python text cipher tool. It translates text into "Meowscript" 
+Meowducer v2.6.0 is a feline-themed Python text cipher tool. It translates text into "Meowscript" 
 using a Base-4 algorithm (mew, meow, prr, purr). 
-Features a gorgeous, cute Catppuccin dark GUI (Tkinter), an interactive CLI, and direct terminal commands! ✨
+It features a black-and-red Tkinter GUI, an interactive CLI, and direct terminal commands.
 
 ---
 
@@ -9,10 +9,13 @@ Features a gorgeous, cute Catppuccin dark GUI (Tkinter), an interactive CLI, and
 
 - **Base-4 Cipher Encoding**: Translates characters into distinct 3-sound combinations using `mew`, `meow`, `prr`, and `purr`.
 - **Versatile Execution Modes**:
-  - 🎨 **GUI Mode**: A beautiful, aesthetically pleasing Catppuccin-inspired dark theme with cute styling.
+  - 🎨 **GUI Mode**: A black-and-red interface with Encrypt, Decrypt, Copy, and Paste controls.
   - 💻 **Console Mode**: Interactive CLI mode (`-c`) for lightweight setups or terminal environments.
   - ⚡ **Direct CLI Execution**: Quickly encode (`-e`) or decode (`-d`) directly from your terminal prompt.
 - **Expanded Alphabet Support**: Full support for standard English lowercase letters (`a-z`), **numbers (`0-9`)**, spaces, and basic punctuation (`. , ! ? '`).
+- **Optional Salt**: The GUI can use a salt string to shift characters before encoding. Enter the same salt to decrypt; leaving it blank keeps the original behavior.
+
+The salt feature is part of this custom cipher and is not suitable for protecting sensitive data.
 
 ---
 
