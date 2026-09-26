@@ -10,9 +10,9 @@ import time
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, version 3 of the License.
-# version 2.6.0
+# version 2.6.2
 
-VERSION = "2.6.0"
+VERSION = "2.6.2"
 ALPHABET = "abcdefghijklmnopqrstuvwxyz0123456789 .,!?'"
 SOUNDS = ["mew", "meow", "prr", "purr"]
 SOUND_TO_VAL = {sound: i for i, sound in enumerate(SOUNDS)}
