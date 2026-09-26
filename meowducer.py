@@ -1,4 +1,5 @@
 import sys
+import hashlib
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import font as tkfont
@@ -16,13 +17,24 @@ VERSION = "2.6.2"
 ALPHABET = "abcdefghijklmnopqrstuvwxyz0123456789 .,!?'"
 SOUNDS = ["mew", "meow", "prr", "purr"]
 SOUND_TO_VAL = {sound: i for i, sound in enumerate(SOUNDS)}
+SALT_MARKER = 63
+SALT_TAG_LENGTH = 32
+
+
+def salt_tag_values(salt: str) -> list[int]:
+    digest = hashlib.blake2s(salt.encode("utf-8"), digest_size=8).digest()
+    return [
+        (byte >> shift) & 3
+        for byte in digest
+        for shift in (6, 4, 2, 0)
+    ]
 
 
 def encode_meow(text: str, salt: str = "") -> str:
     text = text.lower()
     salt_values = [ord(char) % len(ALPHABET) for char in salt]
     salt_position = 0
-    encoded_words = []
+    encoded_values = []
     for char in text:
         if char not in ALPHABET:
             continue
@@ -30,6 +42,16 @@ def encode_meow(text: str, salt: str = "") -> str:
         if salt_values:
             val = (val + salt_values[salt_position % len(salt_values)]) % len(ALPHABET)
             salt_position += 1
+        d1 = val // 16
+        d2 = (val % 16) // 4
+        d3 = val % 4
+        encoded_values.append(val)
+
+    if salt:
+        encoded_values = [SALT_MARKER, *salt_tag_values(salt), *encoded_values]
+
+    encoded_words = []
+    for val in encoded_values:
         d1 = val // 16
         d2 = (val % 16) // 4
         d3 = val % 4
@@ -44,7 +66,7 @@ def decode_meow(cat_text: str, salt: str = "") -> str:
     if len(words) % 3 != 0:
         return "⚠️ Error: The cat message is incomplete (must be a multiple of 3 words)."
 
-    decoded_chars = []
+    encoded_values = []
     for i in range(0, len(words), 3):
         w1, w2, w3 = words[i], words[i + 1], words[i + 2]
         if (
@@ -57,9 +79,24 @@ def decode_meow(cat_text: str, salt: str = "") -> str:
             )
 
         d1, d2, d3 = SOUND_TO_VAL[w1], SOUND_TO_VAL[w2], SOUND_TO_VAL[w3]
-        val = (d1 * 16) + (d2 * 4) + d3
-        if val < len(ALPHABET):
-            decoded_chars.append(ALPHABET[val])
+        encoded_values.append((d1 * 16) + (d2 * 4) + d3)
+
+    if encoded_values and encoded_values[0] == SALT_MARKER:
+        header_length = 1 + SALT_TAG_LENGTH
+        if len(encoded_values) < header_length:
+            return "⚠️ Error: Salt verification data is incomplete."
+        if not salt:
+            return "⚠️ Error: This encrypted text requires its salt."
+        if encoded_values[1:header_length] != salt_tag_values(salt):
+            return "⚠️ Error: Incorrect salt."
+        encoded_values = encoded_values[header_length:]
+    elif salt:
+        return "⚠️ Error: This message has no salt verification data."
+
+    if any(val >= len(ALPHABET) for val in encoded_values):
+        return "⚠️ Error: Invalid encoded character value."
+
+    decoded_chars = [ALPHABET[val] for val in encoded_values]
 
     salt_values = [ord(char) % len(ALPHABET) for char in salt]
     if salt_values:
